@@ -47,11 +47,11 @@ while (currentPage <= maxPage) {
                 const blogContent = await getArticleContents(blogUrl)
 
                 tempData.push({
-                    blogDate,
-                    blogTitle,
-                    blogUrl,
-                    blogImage,
-                    blogContent
+                    date: blogDate,
+                    title: blogTitle,
+                    url: blogUrl,
+                    image: blogImage,
+                    content: blogContent
                 });
                 counter++;
                 
@@ -63,23 +63,13 @@ while (currentPage <= maxPage) {
                     const gridUrl = `${BASE_URL}${$(row).find('div.box-content-inner p.blog-grid-meta.small-text span a').attr('href')}`;
                     const gridImage = `${BASE_URL}${$(row).find('div.box-content-inner div.blog-grid-image img').attr('src')}`;
                     const gridContent = await getArticleContents(gridUrl);
-
-                    /*tempData = [
-                        ...tempData,
-                        {
-                            gridDate,
-                            gridTitle,
-                            gridUrl,
-                            gridImage,
-                            gridContent
-                        }
-                    ]*/
+                    
                     tempData.push({
-                        gridDate,
-                        gridTitle,
-                        gridUrl,
-                        gridImage,
-                        gridContent
+                        date: gridDate,
+                        title: gridTitle,
+                        url: gridUrl,
+                        image: gridImage,
+                        content: gridContent
                     });
                     counter++;
                 });
